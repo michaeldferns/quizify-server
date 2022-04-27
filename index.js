@@ -13,6 +13,8 @@ app.use(routes);
 
 const PORT = process.env.PORT || 8081;
 
+console.log(process.env.NODE_ENV);
+
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}...`);
 });
