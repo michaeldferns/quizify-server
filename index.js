@@ -1,12 +1,15 @@
+const cors = require('cors');
 const express = require('express');
+const routes = require('./routes');
+require('./services/passport');
 
 const app = express();
 
-app.use((req, res) => {
-  return res.json({
-    message: 'server working',
-  });
-});
+// Apply Middlewares
+app.use(express.json());
+app.use(cors());
+
+app.use(routes);
 
 const PORT = process.env.PORT || 8081;
 
