@@ -1,12 +1,14 @@
 const { Router } = require('express');
+const publicRoutes = require('./public');
+const privateRoutes = require('./private');
 
-// Setup root router
 const router = Router();
 
+router.use(publicRoutes);
+router.use(privateRoutes);
+
 router.use((req, res) => {
-  return res.status(404).json({
-    message: '404',
-  });
+  res.status(404).send('404');
 });
 
 module.exports = router;
