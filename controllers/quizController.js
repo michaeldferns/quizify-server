@@ -57,6 +57,8 @@ const createQuiz = async (req, res) => {
       numQuestions = quizConfig.length;
     } else if (parseInt(numQuestions) <= 0) {
       numQuestions = quizConfig.length;
+    } else if (parseInt(numQuestions) > quizConfig.length - 1) {
+      numQuestions = quizConfig.length;
     }
 
     // Create Quiz
